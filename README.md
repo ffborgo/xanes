@@ -38,6 +38,8 @@ Para cada conjunto de datos, se realiza un ajuste lineal de los bordes de absorc
 
 El análisis se presenta a través de gráficos que muestran las intensidades de absorbancia en función de la energía. Los gráficos se generan con `matplotlib` y se guardan como imágenes PNG.
 
+<img src="https://github.com/ffborgo/xanes/blob/main/grafico.png?raw=true" alt="Gráfico XANES" style="width: 50%; max-width: 500px;">
+
 ## Contribuciones
 
 Las contribuciones son bienvenidas. Si deseas mejorar este proyecto o agregar nuevas funcionalidades, siéntete libre de abrir un `issue` o enviar un `pull request`. Aquí hay algunas formas en las que puedes contribuir:
