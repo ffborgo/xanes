@@ -1,13 +1,14 @@
-# Análisis de Espectros de Absorbancia y Ajuste de Datos Experimentales
+# Determinación del Estado de Oxidación de un Óxido Desconocido
 
-Este proyecto realiza el análisis de espectros de absorbancia de varios óxidos de manganeso utilizando Python. A través de este análisis, se comparan las intensidades medidas con las predicciones teóricas, ajustando los datos experimentales a un modelo lineal para obtener el número de oxidación de los compuestos.
+Este proyecto utiliza un análisis de espectros de absorbancia K de óxidos de manganeso para determinar el estado de oxidación de un óxido desconocido. El proceso se basa en un ajuste lineal de los datos experimentales y su extrapolación para estimar el número de oxidación, implementado mediante Python.
 
 ## Contenido del Proyecto
 
-1. **Lectura y preparación de datos experimentales**: Carga de archivos `.dat` con datos experimentales y preprocesamiento de los datos, incluida la normalización y ajuste de las intensidades.
-2. **Ajuste de modelo**: Uso de un modelo lineal para ajustar los bordes de absorción y calcular el número de oxidación de los compuestos.
-3. **Visualización de los datos**: Creación de gráficos que muestran las intensidades de absorbancia frente a la energía, y ajuste de curvas para los diferentes compuestos.
-4. **Cálculo de incertidumbres**: Estimación de los errores en el ajuste del modelo utilizando las covarianzas calculadas por `curve_fit`.
+1. **Lectura y Preprocesamiento de Datos**: Carga de archivos de datos experimentales y su preparación para el análisis (normalización y limpieza de datos).
+2. **Ajuste Lineal**: Implementación de un modelo de regresión lineal para ajustar los bordes de absorción K y calcular los estados de oxidación.
+3. **Extrapolación**: Uso de la recta ajustada para determinar el estado de oxidación del óxido desconocido.
+4. **Visualización de Resultados**: Generación de gráficos de absorbancia frente a energía con las curvas ajustadas.
+5. **Cálculo de Incertidumbres**: Estimación de errores en los ajustes utilizando las covarianzas obtenidas por `curve_fit`.
 
 ## Requerimientos
 
@@ -16,7 +17,7 @@ Para ejecutar este proyecto, necesitas tener instaladas las siguientes bibliotec
 - `pandas`: Para la manipulación de datos.
 - `numpy`: Para operaciones matemáticas.
 - `matplotlib`: Para la visualización de datos.
-- `scipy`: Para el ajuste de curvas y el cálculo de modelos.
+- `scipy`: Para el ajuste de curvas y cálculos relacionados.
 
 Puedes instalar las dependencias con el siguiente comando:
 
@@ -28,22 +29,20 @@ pip install pandas numpy matplotlib scipy
 
 ### Carga y Preprocesamiento de los Datos
 
-El proyecto comienza con la carga de los archivos de datos `.dat`, los cuales contienen información sobre la energía y la intensidad de absorbancia para cada compuesto. Luego se realiza un preprocesamiento en el cual se normalizan las intensidades de absorbancia, y se calculan las relaciones entre las intensidades medidas y las intensidades iniciales.
+El proyecto comienza con la carga de los archivos de datos `.dat` que contienen las intensidades de absorbancia K y las energías correspondientes para los óxidos de manganeso. Después, se realiza un preprocesamiento para normalizar las intensidades y preparar los datos para el ajuste.
 
-### Ajuste de Curvas
+### Ajuste Lineal y Extrapolación
 
-Para cada conjunto de datos, se realiza un ajuste lineal de los bordes de absorción utilizando el método de mínimos cuadrados de `scipy.optimize.curve_fit`. Esto permite obtener el número de oxidación de cada compuesto, además de calcular los errores en el ajuste.
+Se aplica un modelo de regresión lineal utilizando `scipy.optimize.curve_fit` para ajustar los bordes de absorción K de los óxidos de manganeso. La recta ajustada se utiliza para extrapolar el estado de oxidación del óxido desconocido.
 
 ### Visualización
 
-El análisis se presenta a través de gráficos que muestran las intensidades de absorbancia en función de la energía. Los gráficos se generan con `matplotlib` y se guardan como imágenes PNG.
+Los resultados se muestran mediante gráficos de absorbancia frente a energía, con las rectas ajustadas superpuestas. Los gráficos se generan utilizando `matplotlib` y se guardan como imágenes PNG.
 
-<img src="https://github.com/ffborgo/xanes/blob/main/grafico.png?raw=true" alt="Gráfico XANES" style="width: 50%; max-width: 500px;">
+## Contribuciones y uso
 
-## Contribuciones
+Las contribuciones son bienvenidas. Si deseas mejorar este proyecto, por favor crea una nueva rama y sentite libre de modificarlo a tu gusto.
 
-Las contribuciones son bienvenidas. Si deseas mejorar este proyecto o agregar nuevas funcionalidades, siéntete libre de abrir un `issue` o enviar un `pull request`. Aquí hay algunas formas en las que puedes contribuir:
+## Referencias
 
-1. **Informar Bugs**: Si encuentras un error o algo que no funciona como se espera, abre un `issue` para que pueda investigarse.
-2. **Mejoras**: Si tienes ideas para mejorar el rendimiento, la visualización o cualquier otra parte del proyecto, puedes hacer un `fork` del repositorio y enviar un `pull request` con los cambios propuestos.
-3. **Documentación**: Si encuentras algo en la documentación que no está claro o que puede mejorarse, puedes hacer un `pull request` con tus sugerencias.
+Los datos utilizados en este análisis fueron tomados del experimento realizado en el curso "Experimentos Cuanticos II" de la UNLP.
