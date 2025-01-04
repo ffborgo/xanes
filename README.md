@@ -37,7 +37,9 @@ Se aplica un modelo de regresión lineal utilizando `scipy.optimize.curve_fit` p
 
 ### Visualización
 
-Los resultados se muestran mediante gráficos de absorbancia frente a energía, con las rectas ajustadas superpuestas. Los gráficos se generan utilizando `matplotlib` y se guardan como imágenes PNG.
+Los resultados se muestran mediante gráficos de absorbancia frente a energía, con las rectas ajustadas superpuestas. Los gráficos se generan utilizando `matplotlib` y se guardan como imágenes PNG. Un ejemplo es la siguiente:
+
+<img src="https://github.com/ffborgo/xanes/blob/main/grafico.png" alt="Gráfico final" style="width: 60%; max-width: 500px;">
 
 ## Contribuciones y uso
 
